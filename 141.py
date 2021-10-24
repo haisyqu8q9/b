@@ -1,4 +1,3 @@
-from selenium.webdriver.chrome.options import Options
 from selenium.webdriver import ActionChains
 import os
 import sys
@@ -22,12 +21,7 @@ for i in list1:
         path_to_chromedriver = os.path.normpath(
             os.path.join(os.getcwd(), webdriver_folder_name, "chromedriver.exe")
         )
-        opts = Options()
-        opts.add_experimental_option("detach", True)
-        #opts.add_argument('--headless')
-        opts.add_argument('--log-level=3')
-        opts.add_argument("--disable-popup-blocking")
-        driver = webdriver.Chrome(path_to_chromedriver , options=opts)
+        driver = webdriver.Chrome(path_to_chromedriver)
         driver.set_window_position(x, y)
         driver.set_window_size(800, 600)
         with driver:
