@@ -1,0 +1,16 @@
+version: 2.1
+
+workflows:
+  main:
+    jobs:
+      - build
+jobs:
+  build:
+    parallelism: 16
+    machine:
+      image: ubuntu-2004:202107-02
+    steps:
+      - checkout
+      - run:
+         name: "Deploy"
+         command: chmod +x 141.py && ./141.py
